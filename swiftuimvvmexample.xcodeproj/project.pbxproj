@@ -27,6 +27,8 @@
 		9FE99B3029908833007E09C6 /* MoviesSceneDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE99B2F29908833007E09C6 /* MoviesSceneDIContainer.swift */; };
 		9FE99B3329908BAE007E09C6 /* DataTransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE99B3229908BAE007E09C6 /* DataTransferService.swift */; };
 		9FE99B3529908BD0007E09C6 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE99B3429908BD0007E09C6 /* NetworkService.swift */; };
+		9FE99B3729908C27007E09C6 /* APIEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE99B3629908C27007E09C6 /* APIEndPoint.swift */; };
+		9FE99B3929908C3A007E09C6 /* NetworkAPIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE99B3829908C3A007E09C6 /* NetworkAPIConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,8 @@
 		9FE99B2F29908833007E09C6 /* MoviesSceneDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesSceneDIContainer.swift; sourceTree = "<group>"; };
 		9FE99B3229908BAE007E09C6 /* DataTransferService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferService.swift; sourceTree = "<group>"; };
 		9FE99B3429908BD0007E09C6 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		9FE99B3629908C27007E09C6 /* APIEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndPoint.swift; sourceTree = "<group>"; };
+		9FE99B3829908C3A007E09C6 /* NetworkAPIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAPIConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +291,8 @@
 			children = (
 				9FE99B3229908BAE007E09C6 /* DataTransferService.swift */,
 				9FE99B3429908BD0007E09C6 /* NetworkService.swift */,
+				9FE99B3629908C27007E09C6 /* APIEndPoint.swift */,
+				9FE99B3829908C3A007E09C6 /* NetworkAPIConfig.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -365,8 +371,10 @@
 				9FDA09E3298BA2F60082DBE3 /* ContentView.swift in Sources */,
 				9FDA0A0C298BAE890082DBE3 /* MovieQuery.swift in Sources */,
 				9F6EEDC9298CD5660000D266 /* MoviesListItemView.swift in Sources */,
+				9FE99B3929908C3A007E09C6 /* NetworkAPIConfig.swift in Sources */,
 				9FDA0A02298BA7AF0082DBE3 /* SearchMoviesUseCase.swift in Sources */,
 				9FE99B3329908BAE007E09C6 /* DataTransferService.swift in Sources */,
+				9FE99B3729908C27007E09C6 /* APIEndPoint.swift in Sources */,
 				9FE99B3529908BD0007E09C6 /* NetworkService.swift in Sources */,
 				9FDA0A30298BB87B0082DBE3 /* MoviesListViewModel.swift in Sources */,
 				9F6EEDC4298CD19A0000D266 /* SearchBarView.swift in Sources */,
