@@ -85,6 +85,7 @@ final class MoviesListViewModel: ObservableObject {
 //                self.hand
                 return
             }
+            self.loading = .none
         })
 //        query
     }

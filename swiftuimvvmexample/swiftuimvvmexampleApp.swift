@@ -11,7 +11,7 @@ import SwiftUI
 struct swiftuimvvmexampleApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            MoviesListMainView(queryText: <#T##Binding<String>#>, moviesListViewModel: <#T##MoviesListViewModel#>)
         }
     }
 }
