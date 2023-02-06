@@ -38,11 +38,18 @@ struct MoviesListItemView: View {
             .frame(maxHeight: 140)
             .padding(.init(top: 10, leading: 10, bottom: 10, trailing: 10))
             Spacer()
-            Image(systemName: "magnifyingglass")
+            requestImage
                 .resizable()
                 .frame(width: 80, height: 100, alignment: .center)
                 .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
         }
+    }
+    
+    private var requestImage: Image {
+        guard let path = itemData.posterImagePath else {
+            return Image(systemName: "xmark")
+        }
+        return Image(systemName: "stopwatch")
     }
 }
 

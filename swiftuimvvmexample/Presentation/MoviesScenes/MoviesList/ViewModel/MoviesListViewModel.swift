@@ -80,16 +80,14 @@ final class MoviesListViewModel: ObservableObject {
         moviesLoadTask = searchMoviesUseCase?.exute(requestValue: .init(query: .init(query: query), page: nextPage), completion: { result in
             self.loading = .none
             switch result {
-            case .success(let success):
-//                self.appendPage
-                return
+            case .success(let pages):
+                print("Success to get movie pages")
+                self.appendPage(pages: pages)
             case .failure(let failure):
-//                self.hand
-                return
+                print("fail to get movie pages")
             }
             self.loading = .none
         })
-//        query
     }
     
     // MARK: - Test
@@ -97,5 +95,17 @@ final class MoviesListViewModel: ObservableObject {
         let dummy = MoviesListViewModel()
         dummy.items = .init(repeating: .createDummy(), count: 5)
         return dummy
+    }
+    
+    
+    // MARK: - Helper
+    private func appendPage(pages: MoviesPage) {
+        currentPage = pages.page
+        totalPageCount = pages.totalPages
+        
+        self.pages = self.pages.filter { $0.page != pages.page }
+            + [pages]
+        
+        items = pages.movies.map(MoviesListItemViewModel.init)
     }
 }
