@@ -9,7 +9,8 @@ import SwiftUI
 
 struct MoviesListView: View {
     @Binding var items: [MoviesListItemViewModel]
-    @State var selectedItem: MoviesListItemViewModel?
+    @Binding var selectedItem: MoviesListItemViewModel?
+    var action: (MoviesListItemViewModel) -> Void
     
     private let selectAnimationDuration = Animation.easeInOut(duration: 0.3)
     var body: some View {
@@ -29,6 +30,6 @@ struct MoviesListView: View {
 struct MoviesListView_Previews: PreviewProvider {
     static var previews: some View {
         let dummies: [MoviesListItemViewModel] = .init(repeating: .createDummy(), count: 5)
-        MoviesListView(items: .constant(dummies))
+        MoviesListView(items: .constant(dummies), selectedItem: .constant(nil), action: { item in })
     }
 }

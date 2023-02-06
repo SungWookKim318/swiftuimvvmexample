@@ -84,10 +84,18 @@ final class MoviesListViewModel: ObservableObject {
                 print("Success to get movie pages")
                 self.appendPage(pages: pages)
             case .failure(let failure):
-                print("fail to get movie pages")
+                print("fail to get movie pages \(failure)")
             }
             self.loading = .none
         })
+    }
+    
+    func selectMovie(item: MoviesListItemViewModel) {
+        guard let movie = pages.flatMap({$0.movies}).first(where: { $0.id == item.id}) else {
+            print("unkown item")
+            return
+        }
+        actions?.showMovieDetails(movie)
     }
     
     // MARK: - Test

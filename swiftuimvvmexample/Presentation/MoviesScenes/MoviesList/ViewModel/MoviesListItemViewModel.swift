@@ -8,18 +8,20 @@
 import Foundation
 
 struct MoviesListItemViewModel: Equatable, Hashable {
+    let id: Movie.Identifier
     let title: String
     let overview: String
     let releaseDate: String
     let posterImagePath: String?
     
     static func createDummy() -> MoviesListItemViewModel {
-            return MoviesListItemViewModel(title: "Test Title", overview: "OverView OverView", releaseDate: "2019-09-08", posterImagePath: nil)
+        return MoviesListItemViewModel(id: UUID().uuidString, title: "Test Title", overview: "OverView OverView", releaseDate: "2019-09-08", posterImagePath: nil)
     }
 }
 
 extension MoviesListItemViewModel {
     init(movie: Movie) {
+        self.id = movie.id
         self.title = movie.title ?? ""
         self.posterImagePath = movie.posterPath
         self.overview = movie.overview ?? ""

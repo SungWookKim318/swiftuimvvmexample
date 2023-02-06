@@ -9,13 +9,14 @@ import Foundation
 import SwiftUI
 
 final class AppFlowCoordinator {
-    private let appDIContainer: AppDIContainer
     
+    private let appDIContainer: AppDIContainer
+//    private let initialView: IntroContentView
     init(appDIContainer: AppDIContainer) {
         self.appDIContainer = appDIContainer
     }
     
-    func startView() -> some View {
+    func rootView() -> some View {
         let moviesSceneDIContainer = appDIContainer.makeMoviesSceneDIContainer()
         let flow = moviesSceneDIContainer.makeMovieSearchFlowCoordinator()
         return flow.makeStartView()

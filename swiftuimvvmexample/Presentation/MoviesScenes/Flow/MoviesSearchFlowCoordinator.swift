@@ -21,6 +21,10 @@ final class MoviesSearchFlowCoordinator {
     }
     
     func makeStartView() -> some View {
+        return makeListView()
+    }
+    
+    private func makeListView() -> some View {
         let action = MoviesListViewModelActions(showMovieDetails: self.showMovieDetails(movie:), showMovieQueriesSuggestions: self.showMovieQueriesSuggestions(didSelect:), closeMovieQueriesSuggestions: self.closeMovieQueriesSuggestions)
         return dependencies.makeMoviesListMainView(actions: action)
     }

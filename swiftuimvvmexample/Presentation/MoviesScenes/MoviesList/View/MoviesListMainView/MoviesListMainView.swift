@@ -9,13 +9,16 @@ import SwiftUI
 
 struct MoviesListMainView: View {
     @State var queryText: String = ""
+    @State var selectedItem: MoviesListItemViewModel?
     @ObservedObject var moviesListViewModel: MoviesListViewModel
     var body: some View {
         VStack {
             SearchBarView(action: { [weak moviesListViewModel] text in
                 moviesListViewModel?.requestSearch(query: text)
             })
-            MoviesListView(items: $moviesListViewModel.items)
+            MoviesListView(items: $moviesListViewModel.items, selectedItem: $selectedItem) { [weak moviesListViewModel] selectedItem in
+                moviesListViewModel?.selectMovie(item: selectedItem)
+            }
                 .clipped()
         }
     }

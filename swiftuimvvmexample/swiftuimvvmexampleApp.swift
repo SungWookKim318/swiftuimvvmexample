@@ -19,7 +19,7 @@ struct swiftuimvvmexampleApp: App {
     var body: some Scene {
         WindowGroup {
 //            MoviesListMainView(queryText: <#T##Binding<String>#>, moviesListViewModel: <#T##MoviesListViewModel#>)
-            appFlowCoordinator?.startView()
+            appFlowCoordinator?.rootView()
         }
     }
 }
