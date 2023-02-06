@@ -35,7 +35,7 @@ protocol MoviesListViewModelOutput: ObservableObject {
 
 final class MoviesListViewModel: ObservableObject {
     private let searchMoviesUseCase: SearchMoviesUseCase?
-//    private let actions: MoviesListViewModelAc
+//    private let actions: MoviesListViewModelAcion
     
     var currentPage: Int = 0
     var totalPageCount: Int = 1
