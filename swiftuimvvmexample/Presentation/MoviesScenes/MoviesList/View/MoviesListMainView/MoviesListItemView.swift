@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MoviesListItemView: View {
     let itemData: MoviesListItemViewModel
-    
     var title = "Title"
     var releaseDate = "Release Date"
     var overviewText = "Over View\nOver View\nOver View\nOver View\nOver View"

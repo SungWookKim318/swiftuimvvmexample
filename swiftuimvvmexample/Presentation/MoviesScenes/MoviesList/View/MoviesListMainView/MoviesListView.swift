@@ -9,15 +9,17 @@ import SwiftUI
 
 struct MoviesListView: View {
     @Binding var items: [MoviesListItemViewModel]
+    @State var selectedItem: MoviesListItemViewModel?
+    
+    private let selectAnimationDuration = Animation.easeInOut(duration: 0.3)
     var body: some View {
         List {
             ForEach(items, id: \.title) { item in
-                Button {
-                    // notice to view model
-                } label: {
-                    MoviesListItemView(itemData: item)
-                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-                }
+                MoviesListItemView(itemData: item)
+                    .listRowBackground(self.selectedItem == item ? Color.gray.animation(selectAnimationDuration) : Color.white.animation(selectAnimationDuration))
+                    .onTapGesture {
+                        self.selectedItem = item
+                    }
             }
             .listRowSeparator(.hidden, edges: .all)
         }
