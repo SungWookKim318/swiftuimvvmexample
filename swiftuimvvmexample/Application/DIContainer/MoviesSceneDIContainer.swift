@@ -10,7 +10,7 @@ import SwiftUI
 
 final class MoviesSceneDIContainer {
     struct Dependencies {
-        let apiDataTransferSeverice: DataTransferService
+        let apiDataTransferService: DataTransferService
         let imageDataTransferService: DataTransferService
     }
     
@@ -30,14 +30,21 @@ final class MoviesSceneDIContainer {
     
     // MARK: - Repositories
     func makeMoviesRepository() -> MoviesRepository {
-        return DefaultMoviesRepository(dataTransferService: dependecies.apiDataTransferSeverice, cache: moviesResponseCache)
+        return DefaultMoviesRepository(dataTransferService: dependecies.apiDataTransferService, cache: moviesResponseCache)
     }
-    
-    func makeMoviesListView(actions: MoviesListViewModelActions) -> MoviesListView {
         
+    private func makeMoviesListViewModel(actions: MoviesListViewModelActions) -> MoviesListViewModel {
+        return .init(searchMoviesUseCase: makeSearchMoviesUseCase(), actions: actions)
     }
     
-    private func makeMoviesListViewModel(actions: MoviesListViewModelAction) -> MoviesListViewModel {
-        return .init(searchMoviesUseCase: makeSearchMoviesUseCase(), actions: actions)
+    // MARK: - Flow Coordinators
+    func makeMovieSearchFlowCoordinator() -> MoviesSearchFlowCoordinator {
+        return MoviesSearchFlowCoordinator(dependencies: self)
+    }
+}
+
+extension MoviesSceneDIContainer: MoviesSearchFlowCoordinatorDependencies {
+    func makeMoviesListMainView(actions: MoviesListViewModelActions) -> MoviesListMainView {
+        return MoviesListMainView.init(moviesListViewModel: makeMoviesListViewModel(actions: actions))
     }
 }

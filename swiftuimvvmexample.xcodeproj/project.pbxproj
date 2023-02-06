@@ -40,6 +40,10 @@
 		9FE99B552990B7C3007E09C6 /* MoviesResponseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE99B542990B7C3007E09C6 /* MoviesResponseStorage.swift */; };
 		9FE99B572990B7CD007E09C6 /* CoreDataMoviesResponseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE99B562990B7CD007E09C6 /* CoreDataMoviesResponseStorage.swift */; };
 		9FE99B5A2990B7E1007E09C6 /* MoviesResponseEntity+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE99B592990B7E1007E09C6 /* MoviesResponseEntity+Mapping.swift */; };
+		9FE99B5C2990C8C6007E09C6 /* AppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE99B5B2990C8C6007E09C6 /* AppFlowCoordinator.swift */; };
+		9FE99B5E2990C922007E09C6 /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE99B5D2990C922007E09C6 /* AppDIContainer.swift */; };
+		9FE99B602990C940007E09C6 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE99B5F2990C940007E09C6 /* AppConfiguration.swift */; };
+		9FE99B632990CC1B007E09C6 /* MoviesSearchFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE99B622990CC1B007E09C6 /* MoviesSearchFlowCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +82,11 @@
 		9FE99B542990B7C3007E09C6 /* MoviesResponseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesResponseStorage.swift; sourceTree = "<group>"; };
 		9FE99B562990B7CD007E09C6 /* CoreDataMoviesResponseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataMoviesResponseStorage.swift; sourceTree = "<group>"; };
 		9FE99B592990B7E1007E09C6 /* MoviesResponseEntity+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoviesResponseEntity+Mapping.swift"; sourceTree = "<group>"; };
+		9FE99B5B2990C8C6007E09C6 /* AppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowCoordinator.swift; sourceTree = "<group>"; };
+		9FE99B5D2990C922007E09C6 /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
+		9FE99B5F2990C940007E09C6 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		9FE99B622990CC1B007E09C6 /* MoviesSearchFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesSearchFlowCoordinator.swift; sourceTree = "<group>"; };
+		9FE99B642990DCFB007E09C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +115,8 @@
 			isa = PBXGroup;
 			children = (
 				9F6EEDCB298D038A0000D266 /* DIContainer */,
+				9FE99B5B2990C8C6007E09C6 /* AppFlowCoordinator.swift */,
+				9FE99B5F2990C940007E09C6 /* AppConfiguration.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -114,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				9FE99B2F29908833007E09C6 /* MoviesSceneDIContainer.swift */,
+				9FE99B5D2990C922007E09C6 /* AppDIContainer.swift */,
 			);
 			path = DIContainer;
 			sourceTree = "<group>";
@@ -137,6 +149,7 @@
 		9FDA09DF298BA2F60082DBE3 /* swiftuimvvmexample */ = {
 			isa = PBXGroup;
 			children = (
+				9FE99B642990DCFB007E09C6 /* Info.plist */,
 				9F6EEDCA298D037E0000D266 /* Application */,
 				9FDA0A08298BAD970082DBE3 /* Infrastructure */,
 				9FDA0A03298BACC80082DBE3 /* Common */,
@@ -213,6 +226,7 @@
 		9FDA09F6298BA5920082DBE3 /* MoviesScenes */ = {
 			isa = PBXGroup;
 			children = (
+				9FE99B612990CC06007E09C6 /* Flow */,
 				9FDA09F7298BA5A00082DBE3 /* MoviesList */,
 				9FDA09F8298BA7110082DBE3 /* MovieDetails */,
 				9FDA09F9298BA7200082DBE3 /* MoviesQueriesList */,
@@ -380,6 +394,14 @@
 			path = EntityMapping;
 			sourceTree = "<group>";
 		};
+		9FE99B612990CC06007E09C6 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				9FE99B622990CC1B007E09C6 /* MoviesSearchFlowCoordinator.swift */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -461,13 +483,17 @@
 				9FDA0A02298BA7AF0082DBE3 /* SearchMoviesUseCase.swift in Sources */,
 				9FE99B572990B7CD007E09C6 /* CoreDataMoviesResponseStorage.swift in Sources */,
 				9FE99B3329908BAE007E09C6 /* DataTransferService.swift in Sources */,
+				9FE99B5E2990C922007E09C6 /* AppDIContainer.swift in Sources */,
 				9FE99B3729908C27007E09C6 /* APIEndPoint.swift in Sources */,
 				9FE99B3529908BD0007E09C6 /* NetworkService.swift in Sources */,
 				9FDA0A30298BB87B0082DBE3 /* MoviesListViewModel.swift in Sources */,
 				9F6EEDC4298CD19A0000D266 /* SearchBarView.swift in Sources */,
 				9F6EEDC7298CD50D0000D266 /* MoviesListMainView.swift in Sources */,
+				9FE99B5C2990C8C6007E09C6 /* AppFlowCoordinator.swift in Sources */,
+				9FE99B632990CC1B007E09C6 /* MoviesSearchFlowCoordinator.swift in Sources */,
 				9FE99B4C2990A40A007E09C6 /* CoreDataStorage.xcdatamodeld in Sources */,
 				9FDA0A05298BACD20082DBE3 /* Cancellable.swift in Sources */,
+				9FE99B602990C940007E09C6 /* AppConfiguration.swift in Sources */,
 				9FE99B3B299097BA007E09C6 /* DefaultMoviesRepository.swift in Sources */,
 				9F6EEDC2298CD1350000D266 /* MoviesListView.swift in Sources */,
 				9FE99B3029908833007E09C6 /* MoviesSceneDIContainer.swift in Sources */,
@@ -612,6 +638,7 @@
 				DEVELOPMENT_TEAM = MUKB67VP48;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = swiftuimvvmexample/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -642,6 +669,7 @@
 				DEVELOPMENT_TEAM = MUKB67VP48;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = swiftuimvvmexample/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

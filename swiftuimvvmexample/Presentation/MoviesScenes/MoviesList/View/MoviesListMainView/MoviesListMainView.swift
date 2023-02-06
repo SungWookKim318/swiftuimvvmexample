@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MoviesListMainView: View {
-    @Binding var queryText: String
+    @State var queryText: String = ""
     @ObservedObject var moviesListViewModel: MoviesListViewModel
     var body: some View {
         VStack {
@@ -23,6 +23,6 @@ struct MoviesListMainView: View {
 
 struct MoviesListMainView_Previews: PreviewProvider {
     static var previews: some View {
-        MoviesListMainView(queryText: .constant(""), moviesListViewModel: .createDummy())
+        MoviesListMainView(queryText: "", moviesListViewModel: .createDummy())
     }
 }

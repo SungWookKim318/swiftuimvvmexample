@@ -9,13 +9,13 @@ import Foundation
 import SwiftUI
 
 
-//struct MoviesListViewModelActions {
-//    /// Note: if you would need to edit movie inside Details screen and update this Movies List screen with updated movie then you would need this closure:
-//    /// showMovieDetails: (Movie, @escaping (_ updated: Movie) -> Void) -> Void
-//    let showMovieDetails: (Movie) -> Void
-//    let showMovieQueriesSuggestions: (@escaping (_ didSelect: MovieQuery) -> Void) -> Void
-//    let closeMovieQueriesSuggestions: () -> Void
-//}
+struct MoviesListViewModelActions {
+    /// Note: if you would need to edit movie inside Details screen and update this Movies List screen with updated movie then you would need this closure:
+    /// showMovieDetails: (Movie, @escaping (_ updated: Movie) -> Void) -> Void
+    let showMovieDetails: (Movie) -> Void
+    let showMovieQueriesSuggestions: (@escaping (_ didSelect: MovieQuery) -> Void) -> Void
+    let closeMovieQueriesSuggestions: () -> Void
+}
 
 enum MoviesListViewModelLoading {
     case fullScreen
@@ -35,7 +35,7 @@ protocol MoviesListViewModelOutput: ObservableObject {
 
 final class MoviesListViewModel: ObservableObject {
     private let searchMoviesUseCase: SearchMoviesUseCase?
-//    private let actions: MoviesListViewModelAcion
+    private let actions: MoviesListViewModelActions?
     
     var currentPage: Int = 0
     var totalPageCount: Int = 1
@@ -60,12 +60,14 @@ final class MoviesListViewModel: ObservableObject {
     let errorTitle = "Error"
     let searchBarPlaceholder = "Search Movies"
     
-    init(searchMoviesUseCase: SearchMoviesUseCase) {
+    init(searchMoviesUseCase: SearchMoviesUseCase, actions: MoviesListViewModelActions) {
         self.searchMoviesUseCase = searchMoviesUseCase
+        self.actions = actions
     }
     
     private init() {
         self.searchMoviesUseCase = nil
+        self.actions = nil
     }
     
     // MARK: - Actions
