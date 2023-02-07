@@ -32,9 +32,15 @@ final class MoviesSceneDIContainer {
     func makeMoviesRepository() -> MoviesRepository {
         return DefaultMoviesRepository(dataTransferService: dependecies.apiDataTransferService, cache: moviesResponseCache)
     }
+    
+    // MARK: - Generate ViewModel
         
     private func makeMoviesListViewModel(actions: MoviesListViewModelActions) -> MoviesListViewModel {
         return .init(searchMoviesUseCase: makeSearchMoviesUseCase(), actions: actions)
+    }
+    
+    private func makeMovieDetailViewModel(movie: Movie) -> MovieDetailViewModel {
+        return .init(movie: movie)
     }
     
     // MARK: - Flow Coordinators
@@ -45,6 +51,10 @@ final class MoviesSceneDIContainer {
 
 extension MoviesSceneDIContainer: MoviesSearchFlowCoordinatorDependencies {
     func makeMoviesListMainView(actions: MoviesListViewModelActions) -> MoviesListMainView {
-        return MoviesListMainView.init(moviesListViewModel: makeMoviesListViewModel(actions: actions))
+        return MoviesListMainView(moviesListViewModel: makeMoviesListViewModel(actions: actions))
+    }
+    
+    func makeMovieDetailView(movie: Movie) -> MovieDetailView {
+        return MovieDetailView(detailViewModel: makeMovieDetailViewModel(movie: movie))
     }
 }

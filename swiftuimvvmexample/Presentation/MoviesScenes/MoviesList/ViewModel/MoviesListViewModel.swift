@@ -12,7 +12,7 @@ import SwiftUI
 struct MoviesListViewModelActions {
     /// Note: if you would need to edit movie inside Details screen and update this Movies List screen with updated movie then you would need this closure:
     /// showMovieDetails: (Movie, @escaping (_ updated: Movie) -> Void) -> Void
-    let showMovieDetails: (Movie) -> Void
+    let showMovieDetails: (Movie) -> MovieDetailView
     let showMovieQueriesSuggestions: (@escaping (_ didSelect: MovieQuery) -> Void) -> Void
     let closeMovieQueriesSuggestions: () -> Void
 }
@@ -54,6 +54,9 @@ final class MoviesListViewModel: ObservableObject {
     @Published var loading: MoviesListViewModelLoading?
     @Published var query: String?
     @Published var error: String?
+    
+    @Published var detailView: MovieDetailView?
+    
     var isEmpty: Bool { return items.isEmpty }
     let screenTitle = "Movies"
     let emptyDataTitle = "Search results"
@@ -78,7 +81,6 @@ final class MoviesListViewModel: ObservableObject {
         self.query = query
         
         moviesLoadTask = searchMoviesUseCase?.exute(requestValue: .init(query: .init(query: query), page: nextPage), completion: { result in
-            self.loading = .none
             switch result {
             case .success(let pages):
                 print("Success to get movie pages")
@@ -95,7 +97,7 @@ final class MoviesListViewModel: ObservableObject {
             print("unkown item")
             return
         }
-        actions?.showMovieDetails(movie)
+        detailView = actions?.showMovieDetails(movie)
     }
     
     // MARK: - Test

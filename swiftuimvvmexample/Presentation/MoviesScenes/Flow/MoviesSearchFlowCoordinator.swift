@@ -10,7 +10,7 @@ import SwiftUI
 
 protocol MoviesSearchFlowCoordinatorDependencies {
     func makeMoviesListMainView(actions: MoviesListViewModelActions) -> MoviesListMainView
-    //
+    func makeMovieDetailView(movie: Movie) -> MovieDetailView
 }
 
 final class MoviesSearchFlowCoordinator {
@@ -29,8 +29,8 @@ final class MoviesSearchFlowCoordinator {
         return dependencies.makeMoviesListMainView(actions: action)
     }
     
-    private func showMovieDetails(movie: Movie) {
-        
+    private func showMovieDetails(movie: Movie) -> MovieDetailView {
+        return dependencies.makeMovieDetailView(movie: movie)
     }
     
     private func showMovieQueriesSuggestions(didSelect: @escaping (MovieQuery) -> Void) {

@@ -20,6 +20,7 @@ struct MoviesListView: View {
                     .listRowBackground(self.selectedItem == item ? Color.gray.animation(selectAnimationDuration) : Color.white.animation(selectAnimationDuration))
                     .onTapGesture {
                         self.selectedItem = item
+                        action(item)
                     }
             }
             .listRowSeparator(.hidden, edges: .all)
